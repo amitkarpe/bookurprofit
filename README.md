@@ -14,8 +14,11 @@ Lets build such tool !
 There can various things to implement:
 
 Web3 dApplication: 
-Idea: https://www.figma.com/team_invite/redeem/roMI2bosvp4Q6kWTqfSFnP
+Idea: https://www.figma.com/file/5m6Hg2m3Qr3bSAr2spPJ8S/bookurprofit?node-id=0%3A1
 
-API/Library:
+API/Library: function book (int percentage = 20 ) 
 
-CLI command:
+CLI command: 
+```
+$./bookprofit.py 20
+```
