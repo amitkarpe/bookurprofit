@@ -10,3 +10,12 @@ Do we have any tool which will follow our wallet on various blockchain and recom
 Do we have any tool which will set ratio or percentage for profit and once achieved that threshold automatically it will book the profit?
 
 Lets build such tool !
+
+There can various things to implement:
+
+Web3 dApplication: 
+Idea: https://www.figma.com/team_invite/redeem/roMI2bosvp4Q6kWTqfSFnP
+
+API/Library:
+
+CLI command:
