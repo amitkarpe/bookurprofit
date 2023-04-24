@@ -27,8 +27,8 @@ def CheckApproval ():
       built = helper.build_tx(approve_tx) # prepare the transaction for signing, gas price defaults to fast.
       signed = helper.sign_tx(built) # sign the transaction using your private key
       approval_result = helper.broadcast_tx(signed) #broadcast the transaction to the network and wait for the receipt. 
-  # else:
-  #     print ("Token is approved. ")
+  else:
+      print ("Token is approved. ")
 
 def GetBalance ():
   result = helper.get_ERC20_balance(exchange._token_to_address(investment_token))
