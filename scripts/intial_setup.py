@@ -80,8 +80,8 @@ def Exiting(statusCode):
     # sys.exit(0)
 
 def Check_Allowance (investment_token, amount, exchange, helper, public_key):
-    # amount = 115792089237316195423570985008687907853269984665640564039457584007913129639935
-    amount = 11579208923731619542357098500868790785326998466564056403945758400791312963993
+    amount = 115792089237316195423570985008687907853269984665640564039457584007913129639935
+    # amount = 11579208923731619542357098500868790785326998466564056403945758400791312963993
     # amount = 0
     get_allowance = exchange.get_allowance(investment_token, public_key)
     # print ("Allowance: ", get_allowance)
@@ -92,17 +92,19 @@ def Check_Allowance (investment_token, amount, exchange, helper, public_key):
     # compare allowance with amount as long interger and approve if allowance is less than amount
     # convert allowance to long interger
     allowance = int(loads.get("allowance"))
-    # print ("Allowance: ", allowance)
+    print ("Allowance: ", allowance)
     # print (type(allowance))
     
     # if loads.get("allowance") == '0':
-    if allowance == 0 or allowance < amount:
+    if allowance < 0 and allowance < amount:
         print ("You need to approve the token first.")
         print ("Approving token: ", investment_token)
-        print ("Amount: ", amount)
-        # approve_tx = exchange.get_approve(investment_token, amount) # get approval transaction
         approve_tx = exchange.get_approve(investment_token) # get approval transaction
-        built = helper.build_tx(approve_tx) # prepare the transaction for signing, gas price defaults to fast.
+        # print ("approve_tx: ", approve_tx)
+        # approve_tx['gasPrice'] = int (approve_tx['gasPrice'] )
+        # approve_tx['gasPrice'] = int (int (approve_tx['gasPrice']) * 1.5)
+        # print ("approve_tx: ", approve_tx)
+        built = helper.build_tx(approve_tx,  speed='high') # prepare the transaction for signing, gas price defaults to fast.
         signed = helper.sign_tx(built) # sign the transaction using your private key
         approval_result = helper.broadcast_tx(signed) #broadcast the transaction to the network and wait for the receipt. 
         time.sleep(5)

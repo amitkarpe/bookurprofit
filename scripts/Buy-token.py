@@ -22,6 +22,9 @@ if len(sys.argv) != 5:
 
 chain = sys.argv[1]
 rpc_url = setup_rpc_url(chain)
+print ("Chain:", chain)
+print ("RPC URL:", rpc_url)
+print ("Public Key:", public_key)
 investment_token = sys.argv[2]
 token = sys.argv[3]
 amount = float(sys.argv[4])
