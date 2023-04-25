@@ -1,7 +1,7 @@
 # Sell-token-all.py
 
 from oneinch_py import OneInchSwap, TransactionHelper
-import json, csv
+import json, csv, sys
 from decouple import config
 from os import system
 import time
@@ -20,8 +20,9 @@ private_key = config('private_key')
 #     sys.exit(1)
 
 
-# chain = sys.argv[1]
-# rpc_url = setup_rpc_url(chain)
+chain = sys.argv[1]
+rpc_url = setup_rpc_url(chain)
+tokens_list = sys.argv[2]
 # investment_token = sys.argv[2]
 # token = sys.argv[3]
 # amount = float(sys.argv[4])
@@ -43,7 +44,7 @@ tokens_data = json.loads(json_string)
 
 # Read the CSV file
 selected_tokens = []
-with open("list_of_tokens.csv", "r") as csvfile:
+with open(tokens_list, "r") as csvfile:
     csv_reader = csv.reader(csvfile)
     next(csv_reader)  # Skip the header
 

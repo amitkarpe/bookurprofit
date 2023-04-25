@@ -1,6 +1,9 @@
 # bookurprofit
 Book you profit
 
+# For latest working code, please [check](https://github.com/amitkarpe/bookurprofit/tree/main/scripts)
+
+
 Background:
 Everyone must have learn a hard lession that always book your profit.
 
