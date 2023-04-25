@@ -80,7 +80,7 @@ def Exiting(statusCode):
     # sys.exit(0)
 
 def Check_Allowance (investment_token, amount, exchange, helper, public_key):
-    amount = 115792089237316195423570985008687907853269984665640564039457584007913129639935
+    # amount = 115792089237316195423570985008687907853269984665640564039457584007913129639935
     # amount = 11579208923731619542357098500868790785326998466564056403945758400791312963993
     # amount = 0
     get_allowance = exchange.get_allowance(investment_token, public_key)
@@ -104,7 +104,7 @@ def Check_Allowance (investment_token, amount, exchange, helper, public_key):
         # approve_tx['gasPrice'] = int (approve_tx['gasPrice'] )
         # approve_tx['gasPrice'] = int (int (approve_tx['gasPrice']) * 1.5)
         # print ("approve_tx: ", approve_tx)
-        approve_tx['gas'] = 70000
+        # approve_tx['gas'] = 70000
         built = helper.build_tx(approve_tx,  speed='high') # prepare the transaction for signing, gas price defaults to fast.
         signed = helper.sign_tx(built) # sign the transaction using your private key
         approval_result = helper.broadcast_tx(signed) #broadcast the transaction to the network and wait for the receipt. 
