@@ -96,7 +96,7 @@ def Check_Allowance (investment_token, amount, exchange, helper, public_key):
     # print (type(allowance))
     
     # if loads.get("allowance") == '0':
-    if allowance < 0 and allowance < amount:
+    if allowance <= 0 :
         print ("You need to approve the token first.")
         print ("Approving token: ", investment_token)
         approve_tx = exchange.get_approve(investment_token) # get approval transaction
@@ -104,6 +104,7 @@ def Check_Allowance (investment_token, amount, exchange, helper, public_key):
         # approve_tx['gasPrice'] = int (approve_tx['gasPrice'] )
         # approve_tx['gasPrice'] = int (int (approve_tx['gasPrice']) * 1.5)
         # print ("approve_tx: ", approve_tx)
+        approve_tx['gas'] = 70000
         built = helper.build_tx(approve_tx,  speed='high') # prepare the transaction for signing, gas price defaults to fast.
         signed = helper.sign_tx(built) # sign the transaction using your private key
         approval_result = helper.broadcast_tx(signed) #broadcast the transaction to the network and wait for the receipt. 
