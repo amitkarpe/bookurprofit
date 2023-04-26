@@ -1,4 +1,4 @@
-# Sell-token-all.py
+# Sell-token-file.py
 from oneinch_py import OneInchSwap, TransactionHelper
 import json, csv, sys, time
 from decouple import config
@@ -55,30 +55,13 @@ for token in selected_tokens:
 
             # Format the rounded balance as a string
             formatted_final_amount = float (format(rounded_final_amount, f".{decimal_places}f"))
-            print(type (formatted_final_amount))
+            # print(type (formatted_final_amount))
             print("Final amount:", formatted_final_amount)
             amount = formatted_final_amount
             # Pass the rounded_final_amount (as Decimal) to the Swap function
             Swap(exchange, helper, token, investment_token, amount)
             # Swap(exchange, helper, token, investment_token, rounded_final_amount)
-            break
-
-            print("Swap completed successfully ✅✅✅ for token:", token)
-            Check_Allowance (token, 0, exchange, helper, public_key)
-            # Format the rounded balance as a string
-            rounded_final_amount = final_amount.quantize(Decimal(10) ** -decimal_places, rounding=ROUND_DOWN)
-            formatted_final_amount = format(rounded_final_amount, f".{decimal_places}f")
-            final_amount = Decimal(amount) * (Decimal(percentage) / Decimal(100))
-            final_amount = format(final_amount, f".{decimal_places}f")
-            print ("Final amount: ", final_amount)          
-            Swap (exchange, helper, token, investment_token, final_amount)
-            print ("Swap completed successfully ✅✅✅ for token: ", token)
-            # GetBalance (exchange, helper, token)
-          
-        # print(f"Balance: {amount}")
-        # result = exchange.get_quote(token, "USDC", amount, decimal=tokens_data[token]['decimals'])
-        # print(f"Result: {result}")
-
+            print ("Swap completed successfully ✅ for token: ", token)
 
         print("\n")
     else:

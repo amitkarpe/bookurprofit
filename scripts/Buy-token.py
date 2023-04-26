@@ -42,6 +42,6 @@ Check_Allowance (investment_token, 0, exchange, helper, public_key)
 swap_result = Swap (exchange, helper, investment_token, token, amount)
 # print(swap_result)
 
-print("\nBuyiing was successful for", token, "with amount", amount)
+print("\nBuyiing was successful ✅ for", token, "with amount", amount)
 GetBalance(exchange, helper, investment_token, decimal_places)
 GetBalance(exchange, helper, token, decimal_places)
