@@ -18,4 +18,5 @@ def Swap (exchange, helper, investment_token, token, amount):
     result = helper.build_tx(swap_tx) # prepare the transaction for signing, gas price defaults to fast.
     result = helper.sign_tx(result) # sign the transaction using your private key
     swap_result = helper.broadcast_tx(result) #broadcast the transaction to the network and wait for the receipt. 
+    print("")
     return swap_result

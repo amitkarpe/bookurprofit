@@ -5,12 +5,12 @@ import json, time
 
 
 def CheckBalance (exchange, helper, investment_token, decimal_places):
-  print("decimal_places: ", decimal_places)
+  # print("decimal_places: ", decimal_places)
   balance = helper.get_ERC20_balance(exchange._token_to_address(investment_token), decimal=decimal_places)
-  small_number=0.00000000000000001
-  print("small_number: ", small_number)
+  small_number=0.0000000000000001
+  # print("small_number: ", small_number)
   # Check if the balance is greater than 0 and greater than small_number (0.00000000000000001) to avoid rounding errors ( avoid dust amounts)
-  if balance > 0 and balance > small_number
+  if balance > 0 and balance > small_number:
     print ("\n","Token: ", investment_token, "Balance: ", format(balance, f".{decimal_places}f"), "i.e.", balance, "\n")
   else:
     print ("You don't have any tokens to swap. 😭😭😭😭😭")
@@ -19,9 +19,10 @@ def CheckBalance (exchange, helper, investment_token, decimal_places):
   return balance
 
 def GetBalance (exchange, helper, investment_token, decimal_places):
-  print("decimal_places: ", decimal_places)
+  # print("decimal_places: ", decimal_places)
   balance = helper.get_ERC20_balance(exchange._token_to_address(investment_token), decimal=decimal_places)
-  print ("\n","Token: ", investment_token, "Balance: ", format(balance, f".{decimal_places}f"), "i.e.", balance, "\n")
+  # print ("Token: ", investment_token, "Balance: ", format(balance, f".{decimal_places}f"), "i.e.", balance, "\n")
+  print ("Token: ", investment_token, "Balance: ", format(balance, f".{decimal_places}f"))
   return balance
 
 
@@ -79,9 +80,6 @@ def Exiting(statusCode):
     # sys.exit(0)
 
 def Check_Allowance (investment_token, amount, exchange, helper, public_key):
-    # amount = 115792089237316195423570985008687907853269984665640564039457584007913129639935
-    # amount = 11579208923731619542357098500868790785326998466564056403945758400791312963993
-    # amount = 0
     get_allowance = exchange.get_allowance(investment_token, public_key)
     # print ("Allowance: ", get_allowance)
     loads = json.loads(json.dumps(get_allowance))
@@ -91,7 +89,7 @@ def Check_Allowance (investment_token, amount, exchange, helper, public_key):
     # compare allowance with amount as long interger and approve if allowance is less than amount
     # convert allowance to long interger
     allowance = int(loads.get("allowance"))
-    print ("Allowance: ", allowance)
+    # print ("Allowance: ", allowance)
     # print (type(allowance))
     
     # if loads.get("allowance") == '0':
