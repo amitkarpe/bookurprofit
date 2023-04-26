@@ -45,7 +45,7 @@ def GetBalance (exchange, helper, investment_token):
 def setup_rpc_url(chain):
     if chain == "polygon":
         rpc_url = "https://polygon-mainnet.infura.io/v3/d162e1d2d54e4fd5b07a78b9b9176728"
-    elif chain == "bsc":
+    elif chain == "binance":
         rpc_url = "https://bsc-dataseed.binance.org/"
     elif chain == "ethereum":
         rpc_url = "https://mainnet.infura.io/v3/d162e1d2d54e4fd5b07a78b9b9176728"

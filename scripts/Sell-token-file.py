@@ -1,17 +1,13 @@
 # Sell-token-all.py
-
 from oneinch_py import OneInchSwap, TransactionHelper
-import json, csv, sys
+import json, csv, sys, time
 from decouple import config
-from os import system
-import time
 from intial_setup import setup_rpc_url, Exiting, Check_Allowance, CheckBalance, GetBalance
 from swap import Swap
 from decimal import Decimal, ROUND_DOWN
 
 public_key = config('public_key')
 private_key = config('private_key')
-
 
 if len(sys.argv) != 3:
     print("Usage: python Sell-token-all.py <blockchain> <file with tokens>")
