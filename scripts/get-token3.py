@@ -24,6 +24,9 @@ else:
 
 token = token.upper()
 
+decimal_places = tokens_data[token]['decimals']
+print(decimal_places)
+
 try:
     print(f"{json.dumps (tokens_data[token], indent=4, sort_keys=True)}")
 except:

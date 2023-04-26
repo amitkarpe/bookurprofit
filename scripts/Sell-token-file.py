@@ -45,7 +45,7 @@ for token in selected_tokens:
         # print(f"Address: {tokens_data[token]['address']}")
         decimal_places = tokens_data[token]['decimals']
         print(f"Decimals: {tokens_data[token]['decimals']}")
-        amount = CheckBalance (exchange, helper, token) 
+        amount = CheckBalance (exchange, helper, token, decimal_places) 
         if amount != 0:
             Check_Allowance(token, 0, exchange, helper, public_key)
             final_amount = Decimal(amount) * (Decimal(percentage) / Decimal(100))

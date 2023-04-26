@@ -4,10 +4,10 @@ from oneinch_py import OneInchSwap, TransactionHelper
 import json, time
 
 
-def CheckBalance (exchange, helper, investment_token):
-  decimal_places = 18
-  if investment_token == "USDC" or investment_token == "USDT":
-    decimal_places = 6
+def CheckBalance (exchange, helper, investment_token, decimal_places):
+  # decimal_places = 18
+  # if investment_token == "USDC" or investment_token == "USDT":
+    # decimal_places = 6
   balance = helper.get_ERC20_balance(exchange._token_to_address(investment_token), decimal=decimal_places)
   if balance > 0:
     print ("\n","Token: ", investment_token, "Balance: ", format(balance, f".{decimal_places}f"), "i.e.", balance, "\n")
@@ -15,11 +15,11 @@ def CheckBalance (exchange, helper, investment_token):
     print ("You don't have any tokens to swap. 😭😭😭😭😭")
   return balance
 
-def GetBalance (exchange, helper, investment_token):
-  decimal_places = 18
+def GetBalance (exchange, helper, investment_token, decimal_places):
+  # decimal_places = 18
   # print("investment_token: ", investment_token)
-  if investment_token == "USDC" or investment_token == "USDT":
-    decimal_places = 6
+  # if investment_token == "USDC" or investment_token == "USDT":
+    # decimal_places = 6
     # print("decimal_places: ", decimal_places)
   balance = helper.get_ERC20_balance(exchange._token_to_address(investment_token), decimal=decimal_places)
   print ("\n","Token: ", investment_token, "Balance: ", format(balance, f".{decimal_places}f"), "i.e.", balance, "\n")

@@ -35,10 +35,12 @@ print("Buying Amount:", amount)
 
 exchange = OneInchSwap(public_key, chain=chain) # initialise the OneInchSwap object as "exchange"
 helper = TransactionHelper(rpc_url, public_key, private_key, chain=chain) # initialise the TransactionHelper object as "helper"
-CheckBalance (exchange, helper, investment_token)
+tokens_data = exchange.get_tokens()
+decimal_places = tokens_data[token]['decimals']
+CheckBalance (exchange, helper, investment_token, decimal_places)
 Check_Allowance (investment_token, 0, exchange, helper, public_key)
 swap_result = Swap (exchange, helper, investment_token, token, amount)
 # print(swap_result)
 
-GetBalance(exchange, helper, investment_token)
-GetBalance(exchange, helper, token)
+GetBalance(exchange, helper, investment_token, decimal_places)
+GetBalance(exchange, helper, token, decimal_places)
