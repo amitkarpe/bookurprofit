@@ -1,2 +1,0 @@
-# Buy-token-file.py
-

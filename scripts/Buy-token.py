@@ -39,9 +39,11 @@ tokens_data = exchange.get_tokens()
 decimal_places = tokens_data[token]['decimals']
 CheckBalance (exchange, helper, investment_token, decimal_places)
 Check_Allowance (investment_token, 0, exchange, helper, public_key)
+print (tokens_data[token]['symbol'])
 swap_result = Swap (exchange, helper, investment_token, token, amount)
 # print(swap_result)
 
-print("\nBuyiing was successful ✅ for", token, "with amount", amount)
+print("Buyiing was successful ✅ for", token, "with amount", amount)
+print("\n\n")
 GetBalance(exchange, helper, investment_token, decimal_places)
 GetBalance(exchange, helper, token, decimal_places)

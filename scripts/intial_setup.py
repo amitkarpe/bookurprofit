@@ -9,10 +9,14 @@ def CheckBalance (exchange, helper, investment_token, decimal_places):
   balance = helper.get_ERC20_balance(exchange._token_to_address(investment_token), decimal=decimal_places)
   small_number=0.0000000000000001
   small_number = 0.00000000000001
+  small_number = 0.0000000000001
 #   print("small_number: ", small_number)
   # Check if the balance is greater than 0 and greater than small_number (0.00000000000000001) to avoid rounding errors ( avoid dust amounts)
   if balance > 0 and balance > small_number:
-    print ("\n","Token: ", investment_token, "Balance: ", format(balance, f".{decimal_places}f"), "i.e.", balance, "\n")
+    if investment_token == "USDC" or investment_token == "USDT":
+        decimal_places = 6
+        # print("decimal_places: ", decimal_places)
+        print ("\n","Token: ", investment_token, "Balance: ", format(balance, f".{decimal_places}f"), "i.e.", balance, "\n")
   else:
     print ("You don't have any tokens to swap. 😭😭😭😭😭")
     print ("\n","Token: ", investment_token, "Balance: ", format(balance, f".{decimal_places}f"), "i.e.", balance, "\n")
@@ -20,7 +24,9 @@ def CheckBalance (exchange, helper, investment_token, decimal_places):
   return balance
 
 def GetBalance (exchange, helper, investment_token, decimal_places):
-  # print("decimal_places: ", decimal_places)
+  if investment_token == "USDC" or investment_token == "USDT":
+    decimal_places = 6
+  print("decimal_places: ", decimal_places)
   balance = helper.get_ERC20_balance(exchange._token_to_address(investment_token), decimal=decimal_places)
   # print ("Token: ", investment_token, "Balance: ", format(balance, f".{decimal_places}f"), "i.e.", balance, "\n")
   print ("Token: ", investment_token, "Balance: ", format(balance, f".{decimal_places}f"))
