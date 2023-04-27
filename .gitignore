@@ -6,6 +6,10 @@ __pycache__/
 *$py.class
 *.env
 # **.env
+Buy-token.py
+Buy-token-file.py
+my_secrets
+curl.sh
 
 # C extensions
 *.so

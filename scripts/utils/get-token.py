@@ -3,7 +3,7 @@ from oneinch_py import OneInchSwap, TransactionHelper
 import json, csv, sys, time
 from decouple import config
 from intial_setup import setup_rpc_url, Exiting, Check_Allowance, CheckBalance, GetBalance
-from swap import Swap
+# from swap import Swap
 from decimal import Decimal, ROUND_DOWN
 from jsonpath_ng import jsonpath, parse
 
@@ -27,7 +27,8 @@ exchange = OneInchSwap(public_key, chain=chain) # initialise the OneInchSwap obj
 
 tokens = exchange.get_tokens()
 tokens = json.dumps(tokens, indent=4, sort_keys=True)
-# print (tokens)
+print (tokens)
+exit (0)
 
 # Load the JSON data
 # json_data = json.loads(json_string)
