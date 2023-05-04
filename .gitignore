@@ -10,6 +10,7 @@ Buy-token.py
 Buy-token-file.py
 my_secrets
 curl.sh
+Transfer.py
 
 # C extensions
 *.so

@@ -3,12 +3,17 @@
 from oneinch_py import OneInchSwap, TransactionHelper
 import json, time
 
-def truncate_decimal(value, decimals=15):
-    value_str = str(value)
-    integer_part, decimal_part = value_str.split('.')
-    truncated_decimal_part = decimal_part[:decimals]
-    truncated_value_str = integer_part + '.' + truncated_decimal_part
-    return float(truncated_value_str)
+def truncate_decimal(value, decimals=18):
+    print ("value:", value)
+    # print ("decimals:", decimals)
+    # print ("type (value):", type (value))
+    # value_str = str(value)
+    # integer_part, decimal_part = value_str.split('.')
+    # truncated_decimal_part = decimal_part[:decimals]
+    # truncated_value_str = integer_part + '.' + truncated_decimal_part
+    # return float(truncated_value_str)
+    multiplier = 10 ** decimals
+    return round(value * multiplier) / multiplier
 
 
 def Swap (exchange, helper, investment_token, token, amount):

@@ -44,7 +44,7 @@ for token in selected_tokens:
         print(f"Token: {token}")
         # print(f"Address: {tokens_data[token]['address']}")
         decimal_places = tokens_data[token]['decimals']
-        print(f"Decimals: {tokens_data[token]['decimals']}")
+        # print(f"Decimals: {tokens_data[token]['decimals']}")
         amount = CheckBalance (exchange, helper, token, decimal_places) 
         if amount != 0:
             Check_Allowance(token, 0, exchange, helper, public_key)
@@ -56,7 +56,7 @@ for token in selected_tokens:
             # Format the rounded balance as a string
             formatted_final_amount = float (format(rounded_final_amount, f".{decimal_places}f"))
             # print(type (formatted_final_amount))
-            print("Final amount:", formatted_final_amount)
+            # print("Final amount:", formatted_final_amount)
             amount = formatted_final_amount
             # Pass the rounded_final_amount (as Decimal) to the Swap function
             Swap(exchange, helper, token, investment_token, amount)
