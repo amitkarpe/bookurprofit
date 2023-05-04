@@ -16,7 +16,7 @@ def CheckBalance (exchange, helper, investment_token, decimal_places):
     if investment_token == "USDC" or investment_token == "USDT":
         decimal_places = 6
         # print("decimal_places: ", decimal_places)
-        print ("\n","Token: ", investment_token, "Balance: ", format(balance, f".{decimal_places}f"), "i.e.", balance, "\n")
+        print ("\n","Token: ", investment_token, "Balance: ", format(balance, f".{decimal_places}f"), "i.e.", balance)
   else:
     print ("You don't have any tokens to swap. 😭😭😭😭😭")
     print ("\n","Token: ", investment_token, "Balance: ", format(balance, f".{decimal_places}f"), "i.e.", balance, "\n")
